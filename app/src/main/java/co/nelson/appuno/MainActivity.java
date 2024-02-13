@@ -19,29 +19,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        nombreUsuario = (TextView) findViewById(R.id.usuario);
-        btn1 = findViewById(R.id.btn1);
-        btn2 = findViewById(R.id.btn2);
-
-
-        btn1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                nombreUsuario.setText("Presioné Boton Uno");
-
-            }
-        });
-
-        btn2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                nombreUsuario.setText("Presioné Boton Dos");
-            }
-        });
-
-
     }
     /* Ciclo de vida
      *   OnCreate(); => Siempre se ejecuta por defecto cuando se crea la aplicacion
@@ -56,32 +33,61 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         Log.i(Tag, "Method OnStart");
+
+
+        setContentView(R.layout.activity_main);
+        nombreUsuario = (TextView) findViewById(R.id.usuario);
+        btn1 = findViewById(R.id.btn1);
+        btn2 = findViewById(R.id.btn2);
+
+        nombreUsuario.setText("Method OnStart");
+//        btn1.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                nombreUsuario.setText("Presioné Boton Uno");
+//
+//            }
+//        });
+//
+//        btn2.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                nombreUsuario.setText("Presioné Boton Dos");
+//            }
+//        });
+
     }
     @Override
     protected  void onRestart(){
         super.onRestart();
+        nombreUsuario.setText("MethodOnRestart");
         Log.i(Tag, "Method OnRestart");
     }
     @Override
     protected void onResume(){
         super.onResume();
+        nombreUsuario.setText("Method OnResume");
         Log.i(Tag, "Method OnResume");
     }
 
     @Override
     protected  void onPause(){
         super.onPause();
+        nombreUsuario.setText("Method onPause");
         Log.i(Tag, "Method OnPause");
     }
 
     @Override
     protected  void onStop(){
         super.onStop();
+        nombreUsuario.setText("Method onStop");
         Log.i(Tag, "Method OnStop");
     }
     @Override
     protected  void onDestroy(){
         super.onDestroy();
+        nombreUsuario.setText("Method Destroy");
+
         Log.i(Tag, "Method OnDestroy");
     }
 
