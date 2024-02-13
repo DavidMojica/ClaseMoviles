@@ -18,7 +18,9 @@
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
            android:id="@+id/usuario"
-           android:text="@string/user"/>
+           android:text="@string/user"
+           android:textColor="@color/orangelight"
+           />
    </LinearLayout>
 
     <LinearLayout
@@ -32,17 +34,35 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/btn1"
-            android:text="@string/btn1">
+            android:text="@string/btn1"
+            android:textColor="@color/orangelight"
+            >
 
         </Button>
 
         <Button
+            android:id="@+id/btn2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/btn2"
-            android:text="@string/btn2">
+            android:text="@string/btn2"
+            android:textColor="@color/orangelight">
 
         </Button>
+
     </LinearLayout>
+        <Button
+            android:id="@+id/btn3"
+            android:layout_width="250dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textSize="20sp"
+            android:text="@string/btn2"
+            android:textAllCaps="false"
+            >
+
+        </Button>
 
 </LinearLayout>
