@@ -9,26 +9,26 @@ import android.widget.Button;
 import android.widget.TextView;
 
 
-
+/* Ciclo de vida
+*   OnCreate(); => Siempre se ejecuta por defecto cuando se crea la aplicacion
+*   OnStart();  => Se ejecuta cuando se abre la aplicación
+*   OnRestart(); =>
+*   OnResume(); => Cuando se abre desde segundo plano
+*   OnPause(); => Cuando la aplicación está en segundo plano
+*   OnStop(); => Actividad no visible para el usuario
+*   OnDestroy(); => Cuando se destruye la aplicacion
+* */
 public class MainActivity extends AppCompatActivity {
 
    TextView nombreUsuario;
-   Button btn1,btn2;
+   Button btn1,btn2, btn3;
    String Tag = "Test";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
-    /* Ciclo de vida
-     *   OnCreate(); => Siempre se ejecuta por defecto cuando se crea la aplicacion
-     *   OnStart();  => Se ejecuta cuando se abre la aplicación
-     *   OnRestart(); =>
-     *   OnResume(); => Cuando se abre desde segundo plano
-     *   OnPause(); => Cuando la aplicación está en segundo plano
-     *   OnStop(); => Actividad no visible para el usuario
-     *   OnDestroy(); => Cuando se destruye la aplicacion
-     * */
+    
     @Override
     protected void onStart() {
         super.onStart();
@@ -39,24 +39,58 @@ public class MainActivity extends AppCompatActivity {
         nombreUsuario = (TextView) findViewById(R.id.usuario);
         btn1 = findViewById(R.id.btn1);
         btn2 = findViewById(R.id.btn2);
+        btn3 = (Button) findViewById(R.id.btn3);
 
         nombreUsuario.setText("Method OnStart");
-//        btn1.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                nombreUsuario.setText("Presioné Boton Uno");
-//
-//            }
-//        });
-//
-//        btn2.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                nombreUsuario.setText("Presioné Boton Dos");
-//            }
-//        });
+
+        // @Override
+        // public void onClick(View view){
+        //     if(!nombreUsuario.getText().toString().isEmpty() && !btn3.getText().toString().isEmpty()){
+        //         Toast.makeText(MainActivity.this, "Correcto", Toast);
+        //         enviarPantallaDos();
+        //     } else {
+        //         Toast.makeText(MainActivity.this,"Incorrecto",Toast);
+        //     }
+        // }
+
+       btn1.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               nombreUsuario.setText("Presioné Boton Uno");
+
+           }
+       });
+
+       btn2.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               nombreUsuario.setText("Presioné Boton Dos");
+           }
+       });
+
+       btn3.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+                String textoActual = nombreUsuario.getText().toString();
+                String nombre = "Juan Carlos";
+                enviarPantallaDos(nombre, textoActual);   
+           }
+       });
 
     }
+
+    private void enviarPantallaDos(String nombre, String text){
+        Intent pasarInfo = new Intent(this, pantallados.class); //Pantalla actual, pantalla destino
+        try{
+            pasarInfo.putExtra("name", nombre); //Como se va a llamar ese dato
+            pasarInfo.putExtra("text", text); //Como se va a llamar ese dato
+            startActivity(pasarInfo);
+
+        } catch Exception {
+            Log.i("intent", "Error en intent")
+        }
+    }
+
     @Override
     protected  void onRestart(){
         super.onRestart();
@@ -91,6 +125,6 @@ public class MainActivity extends AppCompatActivity {
         Log.i(Tag, "Method OnDestroy");
     }
 
-
+    
 }
 
