@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">AppUno</string>
-    <string name="user">User</string>
-    <string name="user2">User2</string>
+    <string name="user">UserToSend</string>
+    <string name="user2">User</string>
     <string name="btn1">Login</string>
     <string name="btn2">Ingresar</string>
 </resources>

@@ -73,21 +73,26 @@ public class MainActivity extends AppCompatActivity {
            public void onClick(View view) {
                 String textoActual = nombreUsuario.getText().toString();
                 String nombre = "Juan Carlos";
-                enviarPantallaDos(nombre, textoActual);   
+                if(enviarPantallaDos(nombre, textoActual); enviarPantallaDos(nombre, textoActual)){
+                    Log.i("intentSuccess", "Intent Done")
+                }  else {
+                    Log.i("intentSuccess", "Intent undone")
+                }
            }
        });
 
     }
 
-    private void enviarPantallaDos(String nombre, String text){
+    private boolean enviarPantallaDos(String nombre, String text){
         Intent pasarInfo = new Intent(this, pantallados.class); //Pantalla actual, pantalla destino
         try{
             pasarInfo.putExtra("name", nombre); //Como se va a llamar ese dato
             pasarInfo.putExtra("text", text); //Como se va a llamar ese dato
             startActivity(pasarInfo);
+            return true;
 
         } catch Exception {
-            Log.i("intent", "Error en intent")
+            return false;
         }
     }
 
